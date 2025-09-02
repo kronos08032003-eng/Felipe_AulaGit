@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git e GitHub - Guia Completo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header.site-header {
+      background: linear-gradient(135deg, #1e3a8a, #1f2937);
+      color: #fff;
+      padding: 3.5rem 1rem;
+      text-align: center;
+      border-bottom: 5px solid #2563eb;
+    }
+
+    header .site-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+
+    header .site-subtitle {
+      font-size: 1.2rem;
+      margin-top: .8rem;
+      color: #cbd5e1;
+    }
+
+    h1.text-center {
+      color: #1f2937;
+      font-weight: 700;
+    }
+
+    .accordion-button {
+      background-color: #f3f4f6;
+      font-weight: 600;
+      transition: all .3s ease;
+    }
+
+    .accordion-button i {
+      margin-right: 10px;
+      font-size: 1.3rem;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: #2563eb;
+      color: #fff;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+
+    .accordion-body {
+      background: #fff;
+      border-left: 4px solid #2563eb;
+      padding: 1.5rem;
+      border-radius: 0 0 .6rem .6rem;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .accordion-body ul {
+      padding-left: 1.3rem;
+    }
+
+    .info-card {
+      border-radius: 1rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      padding: 2rem;
+      background: #fff;
+      transition: transform .3s ease;
+      text-align: center;
+    }
+
+    .info-card i {
+      font-size: 3rem;
+      color: #2563eb;
+      margin-bottom: 1rem;
+    }
+
+    .info-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .section-divider {
+      border-top: 3px solid #2563eb;
+      margin: 4rem 0;
+    }
+
+    .code-block {
+      background: #111827;
+      color: #d1d5db;
+      font-family: monospace;
+      padding: .7rem 1rem;
+      border-radius: .5rem;
+      margin: .4rem 0;
+      display: inline-block;
+    }
+
+    footer.site-footer {
+      background: #1f2937;
+      color: #d1d5db;
+      padding: 2.5rem 1rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer .social-icons a {
+      font-size: 1.5rem;
+      margin: 0 .5rem;
+      color: #d1d5db;
+      transition: color .3s;
+    }
+
+    footer .social-icons a:hover {
+      color: #60a5fa;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Guia Completo: Git e GitHub</h1>
+      <p class="site-subtitle">Por: Felipe de Oliveira Dias</p>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="container mt-5">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="info-card">
+          <i class="bi bi-git"></i>
+          <h3>Git</h3>
+          <p>Ferramenta de versionamento local para controlar e gerenciar as versões do seu projeto. Funciona mesmo sem internet e mantém todo o histórico no computador.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="info-card">
+          <i class="bi bi-github"></i>
+          <h3>GitHub</h3>
+          <p>Plataforma em nuvem que hospeda projetos Git, permitindo colaboração, integração e compartilhamento do código com outros desenvolvedores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- CONTEÚDO -->
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Conteúdo do Guia</h1>
+    <div class="accordion shadow rounded-3" id="accordionTI">
+      
+      <!-- Item 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#item1" aria-expanded="true" aria-controls="item1">
+            <i class="bi bi-terminal"></i> 1. O que é o Git?
+          </button>
+        </h2>
+        <div id="item1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionTI">
+          <div class="accordion-body">
+            <p>O Git é um sistema de controle de versão distribuído criado por Linus Torvalds em 2005, o mesmo criador do Linux. Ele é usado para gerenciar e acompanhar as alterações feitas em arquivos, principalmente em projetos de programação.</p>
+            <p>Com ele, é possível:</p>
+            <ul>
+              <li>Criar diferentes versões de um projeto.</li>
+              <li>Trabalhar em equipe sem perder histórico.</li>
+              <li>Voltar a versões anteriores em caso de erro.</li>
+              <li>Trabalhar offline e depois sincronizar com um servidor remoto.</li>
+            </ul>
+            <p>Por ser distribuído, cada desenvolvedor tem uma cópia completa do repositório, incluindo todo o histórico, o que garante segurança e independência.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item2" aria-expanded="false" aria-controls="item2">
+            <i class="bi bi-cloud-upload"></i> 2. O que é o GitHub?
+          </button>
+        </h2>
+        <div id="item2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionTI">
+          <div class="accordion-body">
+            <p>O GitHub é uma plataforma online baseada em nuvem que utiliza o Git como sistema de versionamento. Ele serve como local central para armazenar projetos e compartilhar código com outras pessoas.</p>
+            <p>Principais vantagens:</p>
+            <ul>
+              <li>Hospedar repositórios Git remotamente.</li>
+              <li>Trabalhar de forma colaborativa com outros desenvolvedores.</li>
+              <li>Usar recursos como pull requests, issues e actions para organizar projetos.</li>
+              <li>Facilitar a integração com ferramentas de automação, testes e deploy.</li>
+            </ul>
+            <p>Ou seja: o Git controla as versões do seu projeto, e o GitHub é o “lugar” onde você pode guardar e compartilhar esse projeto.</p>
+          </div>
+        </div>
+      </div>
+
+        <!-- Diferença Git x GitHub -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item3" aria-expanded="false" aria-controls="item3">
+            3. Diferenças entre Git e GitHub
+          </button>
+        </h2>
+        <div id="item3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionTI">
+          <div class="accordion-body">
+            <p><strong>Git:</strong> É a ferramenta instalada no computador. Permite criar, versionar e gerenciar projetos localmente.</p>
+            <p><strong>GitHub:</strong> É uma plataforma online que hospeda projetos Git e facilita colaboração e compartilhamento.</p>
+            <p>📌 <strong>Exemplo:</strong> Você pode usar o Git mesmo sem internet, mas só consegue enviar seu projeto para outras pessoas (ou trabalhar junto) usando um serviço remoto como o GitHub.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Item 4 exemplo com comandos Linux estilizados -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item4" aria-expanded="false" aria-controls="item4">
+            <i class="bi bi-code-square"></i> 4. Principais comandos Linux para usar no Git Bash
+          </button>
+        </h2>
+        <div id="item4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionTI">
+          <div class="accordion-body">
+            <p>Alguns comandos básicos que ajudam a navegar e manipular arquivos:</p>
+            <div><span class="code-block">pwd</span> → mostra o diretório atual (caminho onde você está).</div>
+            <div><span class="code-block">ls</span> → lista arquivos e pastas no diretório atual.</div>
+            <div><span class="code-block">cd nome_da_pasta</span> → entra em uma pasta.</div>
+            <div><span class="code-block">cd ..</span> → volta para a pasta anterior.</div>
+            <div><span class="code-block">mkdir nome_da_pasta</span> → cria uma nova pasta.</div>
+            <div><span class="code-block">rm nome_do_arquivo</span> → apaga um arquivo.</div>
+            <div><span class="code-block">rm -r nome_da_pasta</span> → apaga uma pasta e tudo dentro dela.</div>
+            <div><span class="code-block">clear</span> → limpa a tela do terminal.</div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Comandos Linux do README -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item5" aria-expanded="false" aria-controls="item5">
+            5. Principais comandos Linux presentes no README.md do repositório
+          </button>
+        </h2>
+        <div id="item5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionTI">
+          <div class="accordion-body">
+            <p>Segundo o exemplo do repositório indicado:</p>
+            <ul>
+              <li><strong>ls</strong> → lista os arquivos existentes no diretório.</li>
+              <li><strong>cd</strong> → permite navegar entre diretórios.</li>
+              <li><strong>pwd</strong> → mostra o caminho absoluto do diretório atual.</li>
+              <li><strong>mkdir</strong> → cria diretórios (pastas).</li>
+              <li><strong>rm</strong> → remove arquivos e pastas.</li>
+            </ul>
+            <p>Esses comandos são úteis para preparar o ambiente antes de usar o Git.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Criar repositório -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading6">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item6" aria-expanded="false" aria-controls="item6">
+            6. Como criar um repositório no GitHub?
+          </button>
+        </h2>
+        <div id="item6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionTI">
+          <div class="accordion-body">
+            <ul>
+              <li>Acesse o site do GitHub e faça login.</li>
+              <li>Clique em <strong>New Repository</strong>.</li>
+              <li>Escolha um nome para o repositório.</li>
+              <li>Adicione uma descrição (opcional).</li>
+              <li>Selecione se será público ou privado.</li>
+              <li>Clique em <strong>Create Repository</strong>.</li>
+              <li>Copie a URL do repositório criado, pois ela será usada para conectar ao seu projeto local.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ligar projeto local -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading7">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item7" aria-expanded="false" aria-controls="item7">
+            7. Como ligar um projeto existente na máquina ao GitHub?
+          </button>
+        </h2>
+        <div id="item7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#accordionTI">
+          <div class="accordion-body">
+            <p>Se você já tem um projeto criado em sua máquina, siga os passos:</p>
+<pre><code>git init
+git add .
+git commit -m "Primeira versão"
+git remote add origin URL_DO_REPOSITORIO
+git push -u origin main
+</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Criar versão -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading8">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item8" aria-expanded="false" aria-controls="item8">
+            8. Como gerar uma versão com Git?
+          </button>
+        </h2>
+        <div id="item8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#accordionTI">
+          <div class="accordion-body">
+            <p>No Git, cada “versão” é chamada de commit. Para criar uma versão:</p>
+<pre><code>git add .
+git commit -m "Descrição da alteração"
+</code></pre>
+            <p>Cada commit fica registrado no histórico, permitindo que você volte a uma versão anterior se precisar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enviar para o GitHub -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading9">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item9" aria-expanded="false" aria-controls="item9">
+            9. Como enviar da máquina para o GitHub?
+          </button>
+        </h2>
+        <div id="item9" class="accordion-collapse collapse" aria-labelledby="heading9" data-bs-parent="#accordionTI">
+          <div class="accordion-body">
+<pre><code>git add .
+git commit -m "Mensagem do commit"
+git push origin main
+</code></pre>
+            <p>Isso garante que os arquivos locais sejam atualizados no repositório remoto.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rodapé com nome -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading10">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item10" aria-expanded="false" aria-controls="item10">
+            10. Criar um rodapé com seu nome completo
+          </button>
+        </h2>
+        <div id="item10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#accordionTI">
+          <div class="accordion-body">
+            <p>No final do arquivo HTML ou README, basta colocar um rodapé, por exemplo:</p>
+<pre><code>&lt;footer&gt;
+  Feito por: Felipe de Oliveira Dias
+&lt;/footer&gt;
+</code></pre>
+<p>Ou, no caso do README.md do GitHub:</p>
+<pre><code>---
+Feito por: Felipe de Oliveira Dias
+</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- CONTATO -->
+  <section class="container text-center my-5">
+    <h2><i class="bi bi-envelope"></i> Entre em Contato</h2>
+    <p>Quer saber mais ou colaborar? Entre em contato comigo:</p>
+    <a href="mailto:seuemail@email.com" class="btn btn-primary btn-lg">
+      <i class="bi bi-send"></i> Enviar E-mail
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer mt-5">
+    <div class="container">
+      <p class="mb-3">&copy; 2025 TechMundo TI. Todos os direitos reservados.</p>
+      <div class="social-icons">
+        <a href="#"><i class="bi bi-github"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+      </div>
+      <p class="mt-3">Feito por: Felipe de Oliveira Dias</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
